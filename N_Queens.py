@@ -1,7 +1,12 @@
-print("Enter the value of n for which you want to solve N queens:")
+print("N QUEENS PROBLEM")
+print("The printing of state space graph makes the output messy. So, we are printing the state space as a line graph")
+print("The program uses recursion and backtracking to solve the problem")
+print("The time complexity of the program is exponential\n\n")
+
+print("Enter the value of n for which you want to solve N queens:", end='')
 n = int(input())
 
-print("Do you want to print the state space for the problem(Y/N)")
+print("Do you want to print the state space for the problem (Y/N):", end='')
 s = input()
 
 flag = False
@@ -57,5 +62,6 @@ def solve(pos, mask):
         print("---------------------------------------------------------\n")
 
     return
+
 
 solve(0, 0)
