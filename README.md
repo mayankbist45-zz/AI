@@ -22,6 +22,7 @@ ScreenShot of the Output
 ## Authors
 
 * **Mayank Bist** - *Initial work* - [Mayank](https://github.com/mayankbist45)
+* **Mohd Haarish** - *Initial work* - [Haarish](https://github.com/MohdHaarish)
 
 ## License
 
