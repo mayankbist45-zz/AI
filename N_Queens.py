@@ -13,9 +13,10 @@ flag = False
 if (s[0] == 'Y') or (s[0] == 'y'):
     flag = True
 
-mat = [['_' for i in range(n)] for j in range(n)]
+mat = [['.' for i in range(n)] for j in range(n)]
 
 
+# [a, b] -> checks whether a, b is a valid point to put a queen
 def valid(a, b):
     ta = a - 1
     tb = b - 1
@@ -36,6 +37,7 @@ def valid(a, b):
 
 
 def solve(pos, mask):
+    # Reach the base case only when we find a sol
     if pos == n:
         print("Found a solution")
         for i in range(0, n):
@@ -43,8 +45,11 @@ def solve(pos, mask):
                 print(mat[i][j], end=" ")
             print()
         print("---------------------------------------------------------\n")
-        return
+        return 1
     pl = False
+
+    ans = 0
+    # [pos, i] -> put a queen there
     for i in range(0, n):
         if (not ((1 << i) & mask)) and valid(pos, i):
             if flag:
@@ -55,13 +60,14 @@ def solve(pos, mask):
                 print()
             pl = True
             mat[pos][i] = 'Q'
-            solve(pos + 1, mask | (1 << i))
-            mat[pos][i] = '_'
+            ans += solve(pos + 1, mask | (1 << i))
+            # Backtracking part
+            mat[pos][i] = '.'
     if not pl and flag:
         print('The state can have no solution')
         print("---------------------------------------------------------\n")
+    return ans
 
-    return
 
+print("No of solution found :", solve(0, 0))
 
-solve(0, 0)
